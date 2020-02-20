@@ -7,13 +7,37 @@
 
 	"use strict";
 
+	var isMobile = {
+		Android: function() {
+			return navigator.userAgent.match(/Android/i);
+		},
+			BlackBerry: function() {
+			return navigator.userAgent.match(/BlackBerry/i);
+		},
+			iOS: function() {
+			return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+		},
+			Opera: function() {
+			return navigator.userAgent.match(/Opera Mini/i);
+		},
+			Windows: function() {
+			return navigator.userAgent.match(/IEMobile/i);
+		},
+			any: function() {
+			return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+		}
+	};
+
+
 	$(window).stellar({
     responsive: true,
     parallaxBackgrounds: true,
     parallaxElements: true,
     horizontalScrolling: false,
     hideDistantElements: false,
-    scrollProperty: 'scroll'
+    scrollProperty: 'scroll',
+    horizontalOffset: 0,
+	  verticalOffset: 0
   });
 
 
@@ -47,11 +71,10 @@
 	    margin:0,
 	    animateOut: 'fadeOut',
 	    animateIn: 'fadeIn',
-	    nav:true,
-	    dots: true,
+	    nav:false,
 	    autoplayHoverPause: false,
 	    items: 1,
-	    navText : ["<span class='ion-ios-arrow-back'></span>","<span class='ion-ios-arrow-forward'></span>"],
+	    navText : ["<span class='ion-md-arrow-back'></span>","<span class='ion-chevron-right'></span>"],
 	    responsive:{
 	      0:{
 	        items:1
@@ -65,22 +88,25 @@
 	    }
 		});
 		$('.carousel-testimony').owlCarousel({
+			autoplay: true,
+			autoHeight: true,
 			center: true,
 			loop: true,
 			items:1,
 			margin: 30,
 			stagePadding: 0,
 			nav: false,
+			dots: true,
 			navText: ['<span class="ion-ios-arrow-back">', '<span class="ion-ios-arrow-forward">'],
 			responsive:{
 				0:{
 					items: 1
 				},
 				600:{
-					items: 2
+					items: 1
 				},
 				1000:{
-					items: 3
+					items: 1
 				}
 			}
 		});
@@ -151,10 +177,30 @@
 	};
 	scrollWindow();
 
-	
+	var isMobile = {
+		Android: function() {
+			return navigator.userAgent.match(/Android/i);
+		},
+			BlackBerry: function() {
+			return navigator.userAgent.match(/BlackBerry/i);
+		},
+			iOS: function() {
+			return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+		},
+			Opera: function() {
+			return navigator.userAgent.match(/Opera Mini/i);
+		},
+			Windows: function() {
+			return navigator.userAgent.match(/IEMobile/i);
+		},
+			any: function() {
+			return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+		}
+	};
+
 	var counter = function() {
 		
-		$('#section-counter').waypoint( function( direction ) {
+		$('#section-counter, .hero-wrap, .ftco-counter, .ftco-volunteer').waypoint( function( direction ) {
 
 			if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
 
@@ -177,6 +223,7 @@
 
 	}
 	counter();
+
 
 	var contentWayPoint = function() {
 		var i = 0;
@@ -270,15 +317,6 @@
 
     fixedContentPos: false
   });
-
-
-  $('#book_date').datepicker({
-	  'format': 'm/d/yyyy',
-	  'autoclose': true
-	});
-	$('#book_time').timepicker();
-
-
 
 
 })(jQuery);
