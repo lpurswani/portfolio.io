@@ -9617,3 +9617,42 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+/* MY CSS */
+
+.orange-back-link{
+  color:black !important;
+  font:bold !important;
+}
+
+/* about page - skills  */
+
+.center{
+  text-align:center !important;
+}
+
+.padding-64{
+  padding-top:64px !important;
+  padding-bottom:64px !important;
+}
+
+.hover-shadow:hover{
+  box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
+}
+
+.cards{
+  font-size:20px !important;
+}
+
+.skills.cards{
+  border-style: solid !important;
+}
+
+.cards.bg-black{
+  color:white !important;
+}
+
+.title-card{
+  font-size:30px;
+  text-decoration: underline;
+}
